@@ -110,7 +110,6 @@ class MainFrame(ttk.Window):
         self.order = ttk.Combobox(frame_order, width=18, postcommand=self.search_key)
         self.order.grid(row=1, column=1, pady=7, sticky=ttk.NS)
         self.order.bind("<<ComboboxSelected>>", self.go_publish_data)  # 绑定事件,(下拉列表框被选中时，绑定go_publish_data()函数)
-        # self.order.bind('<Control-KeyPress-z>', self.show)
         self.data = Config.parity_key
         pub_btn = ttk.Button(frame_order, text="发送", command=self.publish_data, width=15)
         pub_btn.grid(row=2, column=1, pady=10, sticky=ttk.NS)
@@ -335,7 +334,7 @@ class MainFrame(ttk.Window):
                                     f'\nTopic: {msg.topic}\n{msg.payload.decode("utf-8")}' + '\n' + '消息时间：' + f'{tim}\n')
 
     def auto_refresh(self):  # 自动刷新
-        self.after(200, self.search)
+        self.after(100, self.search)
 
     def search(self):
         search_time = time.time()

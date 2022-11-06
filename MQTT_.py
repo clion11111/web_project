@@ -338,7 +338,7 @@ class MainFrame(ttk.Window):
                                     f'\nTopic: {msg.topic}\n{msg.payload.decode("utf-8")}' + '\n' + '消息时间：' + f'{tim}\n')
 
     def auto_refresh(self):  # 自动刷新
-        self.after(200, self.search)
+        self.after(100, self.search)
 
     def search(self):
         search_time = time.time()
